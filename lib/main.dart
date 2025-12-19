@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/home/home_screen.dart';
 import 'package:islami_app/utils/app_routes.dart';
+import 'package:islami_app/utils/app_theme.dart';
+
+import 'onBoarding/onBoarding_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,15 +12,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      themeMode: ThemeMode.dark,
+      theme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.homeScreenName ,
+      initialRoute: AppRoutes.onBoardingScreenName,
       routes: {
-        AppRoutes.homeScreenName : (context) => HomeScreen()
+        AppRoutes.homeScreenName: (context) => HomeScreen(),
+        AppRoutes.onBoardingScreenName: (context) => OnboardingScreen(),
       },
     );
   }
