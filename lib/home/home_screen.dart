@@ -85,8 +85,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: SvgPicture.asset(
           icon,
-          width: 24,
-          height: 24,
           colorFilter: ColorFilter.mode(
             selectedIndex == index
                 ? AppColors.whiteColor
