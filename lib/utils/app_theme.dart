@@ -10,6 +10,13 @@ class AppTheme {
       type: BottomNavigationBarType.fixed,
       showSelectedLabels: true,
       showUnselectedLabels: false,
+    ),
+    appBarTheme: AppBarTheme(
+      centerTitle: true,
+      backgroundColor: AppColors.appColor,
+      iconTheme: IconThemeData(
+        color: AppColors.goldColor
+      )
     )
   );
 }
