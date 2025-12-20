@@ -37,12 +37,57 @@ class SuraDetailsScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Spacer(),
+              Expanded(
+                child: FutureBuilder<List<String>>(
+                  future: loadSura(index, context),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+
+                    if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                      return const Center(child: Text('No verses found'));
+                    }
+
+                    final verses = snapshot.data!;
+
+                    return SingleChildScrollView(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 16,
+                      ),
+                      child: Text(
+                        buildSuraText(verses),
+                        textAlign: TextAlign.center,
+                        textDirection: TextDirection.rtl,
+                        style: AppText.gold20Text,
+                      ),
+                    );
+                  },
+                ),
+              ),
+
               Image.asset(AppAssets.imgBottomDecoration),
             ],
           ),
         ],
       ),
     );
+  }
+
+  Future<List<String>> loadSura(int index, BuildContext context) async {
+    final content = await DefaultAssetBundle.of(
+      context,
+    ).loadString('assets/Suras/${index + 1}.txt');
+
+    return content.trim().split('\n');
+  }
+
+  String buildSuraText(List<String> verses) {
+    return verses
+        .asMap()
+        .entries
+        .map((e) => '[${e.key + 1}] ${e.value}')
+        .join(' ');
   }
 }
