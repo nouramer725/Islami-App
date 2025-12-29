@@ -27,41 +27,49 @@ class _HadethDetailsScreenState extends State<HadethDetailsScreen> {
       appBar: AppBar(
         title: Text('Hadith $index', style: AppText.bold20AppColor),
       ),
-      body: Stack(
-        children: [
-          Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: width * 0.02),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Image.asset(AppAssets.imgLeftDecoration),
-                    Text(hadeth?.title ?? '', style: AppText.bold20AppColor),
-                    Image.asset(AppAssets.imgRightDecoration),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: height * 0.02,
-                    vertical: width * 0.01,
+      body:
+          hadeth == null
+              ? Center(
+                child: CircularProgressIndicator(color: AppColors.goldColor),
+              )
+              : Stack(
+                children: [
+                  Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: width * 0.02),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Image.asset(AppAssets.imgLeftDecoration),
+                            Text(
+                              hadeth?.title ?? '',
+                              style: AppText.bold20AppColor,
+                            ),
+                            Image.asset(AppAssets.imgRightDecoration),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: height * 0.02,
+                            vertical: width * 0.01,
+                          ),
+                          child: SingleChildScrollView(
+                            child: Text(
+                              textAlign: TextAlign.center,
+                              hadeth?.content ?? '',
+                              style: AppText.gold20Text,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Image.asset(AppAssets.imgBottomDecoration),
+                    ],
                   ),
-                  child: SingleChildScrollView(
-                    child: Text(
-                      textAlign: TextAlign.center,
-                      hadeth?.content ?? '',
-                      style: AppText.gold20Text,
-                    ),
-                  ),
-                ),
+                ],
               ),
-              Image.asset(AppAssets.imgBottomDecoration),
-            ],
-          ),
-        ],
-      ),
     );
   }
 

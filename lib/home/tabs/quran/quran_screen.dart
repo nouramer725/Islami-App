@@ -27,7 +27,7 @@ class _QuranScreenState extends State<QuranScreen> {
       padding: EdgeInsets.symmetric(horizontal: width * 0.04),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: height * 0.02,
+        spacing: width * 0.03,
         children: [
           SearchWidget(
             onChanged: (newText) {

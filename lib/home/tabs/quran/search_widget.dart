@@ -7,11 +7,11 @@ import '../../../utils/app_text.dart';
 
 class SearchWidget extends StatelessWidget {
   void Function(String)? onChanged;
-  SearchWidget({required this.onChanged,super.key});
+  SearchWidget({required this.onChanged, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return    TextField(
+    return TextField(
       cursorColor: AppColors.appColor,
       style: AppText.white16Text,
       onChanged: onChanged,
@@ -30,6 +30,7 @@ class SearchWidget extends StatelessWidget {
       ),
     );
   }
+
   OutlineInputBorder buildOutlineInputBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(20),
@@ -40,5 +41,4 @@ class SearchWidget extends StatelessWidget {
       ),
     );
   }
-
 }
