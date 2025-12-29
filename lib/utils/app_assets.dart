@@ -27,5 +27,10 @@ class AppAssets {
 
   static const String sebhaScreen = 'assets/images/Sebha.png';
   static const String hadethScreen = 'assets/images/HadithCard.png';
+  static const String timeContainer = 'assets/images/pray_time.png';
 
+  static const String eveningAzkar = 'assets/images/evening.png';
+  static const String morningAzkar = 'assets/images/morning.png';
+  static const String sleepingAzkar = 'assets/images/sleeping.png';
+  static const String walkingAzkar = 'assets/images/waking.png';
 }

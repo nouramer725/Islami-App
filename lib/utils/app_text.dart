@@ -16,6 +16,34 @@ class AppText {
     fontFamily: 'Janna',
   );
 
+  static TextStyle white32Text = const TextStyle(
+    color: AppColors.whiteColor,
+    fontSize: 32,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Janna',
+  );
+
+  static TextStyle white20Text = const TextStyle(
+    color: AppColors.whiteColor,
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Janna',
+  );
+
+  static TextStyle brown20Text = const TextStyle(
+    color: AppColors.prayTimeColor,
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Janna',
+  );
+
+  static TextStyle darkBrown20Text = const TextStyle(
+    color: AppColors.darkPrayTimeColor,
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Janna',
+  );
+
   static TextStyle black24Text = const TextStyle(
     color: AppColors.blackColor,
     fontSize: 24,
