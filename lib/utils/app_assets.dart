@@ -26,4 +26,6 @@ class AppAssets {
   static const String imgLeftDecoration = 'assets/images/img_left_corner.png';
 
   static const String sebhaScreen = 'assets/images/Sebha.png';
+  static const String hadethScreen = 'assets/images/HadithCard.png';
+
 }

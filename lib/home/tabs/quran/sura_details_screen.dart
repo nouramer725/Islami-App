@@ -1,16 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:islami_app/home/tabs/quran/sura_details_screen_content.dart';
+import 'package:islami_app/home/tabs/quran/sura_details_screen_content_container.dart';
 import 'package:islami_app/home/tabs/quran/sura_resources.dart';
 import 'package:islami_app/utils/app_assets.dart';
 import 'package:islami_app/utils/app_colors.dart';
 import 'package:islami_app/utils/app_text.dart';
+import 'package:islami_app/utils/most_recent_provider.dart';
+import 'package:provider/provider.dart';
 
-class SuraDetailsScreen extends StatelessWidget {
+class SuraDetailsScreen extends StatefulWidget {
   const SuraDetailsScreen({super.key});
+
+  @override
+  State<SuraDetailsScreen> createState() => _SuraDetailsScreenState();
+}
+
+class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
+  List<String> verses = [];
+  String content = '';
+  bool isContainerView = false;
+  int selectedAyahIndex = -1;
+  late MostRecentProvider mostRecentProvider;
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    mostRecentProvider.getLastSuraIndex();
+  }
 
   @override
   Widget build(BuildContext context) {
     int index = ModalRoute.of(context)?.settings.arguments as int;
     var width = MediaQuery.of(context).size.width;
+    mostRecentProvider = Provider.of<MostRecentProvider>(context);
+    if (verses.isEmpty) loadSuraDetailsContainer(index);
+    if (content.isEmpty) loadSuraDetails(index);
     return Scaffold(
       backgroundColor: AppColors.appColor,
       appBar: AppBar(
@@ -18,6 +44,21 @@ class SuraDetailsScreen extends StatelessWidget {
           SuraResources.englishQuranSurahs[index],
           style: AppText.bold20AppColor,
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              setState(() {
+                isContainerView = !isContainerView;
+              });
+            },
+            icon: Icon(
+              isContainerView
+                  ? Icons.cameraswitch_sharp
+                  : Icons.cameraswitch_outlined,
+              color: AppColors.goldColor,
+            ),
+          ),
+        ],
       ),
       body: Stack(
         children: [
@@ -38,35 +79,42 @@ class SuraDetailsScreen extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: FutureBuilder<List<String>>(
-                  future: loadSura(index, context),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(child: CircularProgressIndicator());
-                    }
-
-                    if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                      return const Center(child: Text('No verses found'));
-                    }
-
-                    final verses = snapshot.data!;
-
-                    return SingleChildScrollView(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 16,
-                      ),
-                      child: Text(
-                        buildSuraText(verses),
-                        textAlign: TextAlign.center,
-                        textDirection: TextDirection.rtl,
-                        style: AppText.gold20Text,
-                      ),
-                    );
-                  },
-                ),
+                child:
+                    isContainerView
+                        ? (verses.isEmpty
+                            ? Center(
+                              child: CircularProgressIndicator(
+                                color: AppColors.goldColor,
+                              ),
+                            )
+                            : ListView.builder(
+                              itemCount: verses.length,
+                              itemBuilder: (context, i) {
+                                return SuraDetailsScreenContentContainer(
+                                  index: i,
+                                  content: verses[i],
+                                  isSelected: selectedAyahIndex == i,
+                                  onTap: () {
+                                    setState(() {
+                                      selectedAyahIndex = i;
+                                    });
+                                  },
+                                );
+                              },
+                            ))
+                        : content.isEmpty
+                        ? Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.goldColor,
+                          ),
+                        )
+                        : SingleChildScrollView(
+                          child: SuraDetailsScreenContent(
+                            index: index,
+                            content: content,
+                          ),
+                        ),
               ),
-
               Image.asset(AppAssets.imgBottomDecoration),
             ],
           ),
@@ -75,19 +123,26 @@ class SuraDetailsScreen extends StatelessWidget {
     );
   }
 
-  Future<List<String>> loadSura(int index, BuildContext context) async {
-    final content = await DefaultAssetBundle.of(
-      context,
-    ).loadString('assets/Suras/${index + 1}.txt');
-
-    return content.trim().split('\n');
+  void loadSuraDetails(int index) async {
+    String fileContent = await rootBundle.loadString(
+      "assets/Suras/${index + 1}.txt",
+    );
+    List<String> lines = fileContent.split("\n");
+    for (int i = 0; i < lines.length; i++) {
+      lines[i] += '[${i + 1}] ';
+    }
+    content = lines.join();
+    await Future.delayed(Duration(seconds: 1));
+    setState(() {});
   }
 
-  String buildSuraText(List<String> verses) {
-    return verses
-        .asMap()
-        .entries
-        .map((e) => '[${e.key + 1}] ${e.value}')
-        .join(' ');
+  void loadSuraDetailsContainer(int index) async {
+    String fileContent = await rootBundle.loadString(
+      "assets/Suras/${index + 1}.txt",
+    );
+    List<String> lines = fileContent.split("\n");
+    verses = lines;
+    await Future.delayed(Duration(seconds: 1));
+    setState(() {});
   }
 }

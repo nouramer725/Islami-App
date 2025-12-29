@@ -30,6 +30,14 @@ class AppText {
     fontFamily: 'Janna',
   );
 
+  static TextStyle black16Text = const TextStyle(
+    color: AppColors.blackColor,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Janna',
+    height: 2,
+  );
+
   static TextStyle bold20AppColor = const TextStyle(
     color: AppColors.goldColor,
     fontSize: 20,
@@ -49,5 +57,14 @@ class AppText {
     fontSize: 20,
     fontWeight: FontWeight.w500,
     fontFamily: 'Janna',
+    height: 2.5,
+  );
+
+  static TextStyle black20Text = const TextStyle(
+    color: AppColors.blackColor,
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Janna',
+    height: 2.5,
   );
 }
