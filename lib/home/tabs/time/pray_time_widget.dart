@@ -9,12 +9,12 @@ class PrayTimeWidget extends StatelessWidget {
 
   List<String> prayName = ["Rise", "Dhuhr", "Asr", "Maghrib", "Isha", "Fajr"];
   List<String> prayTime = [
-    "04:04",
+    "04:30",
     "12:00",
-    "01:00",
-    "05:00",
-    "07:00",
-    "06:00",
+    "01:30",
+    "04:00",
+    "05:30",
+    "07:00"
   ];
   List<String> prayTimePeriod = ["PM", "PM", "PM", "PM", "PM", "AM"];
 
