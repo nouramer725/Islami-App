@@ -14,7 +14,7 @@ class PrayTimeWidget extends StatelessWidget {
     "01:30",
     "04:00",
     "05:30",
-    "07:00"
+    "07:00",
   ];
   List<String> prayTimePeriod = ["PM", "PM", "PM", "PM", "PM", "AM"];
 
@@ -40,7 +40,6 @@ class PrayTimeWidget extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.only(bottom: height * 0.05),
         child: Column(
-          spacing: height * 0.04,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -65,11 +64,12 @@ class PrayTimeWidget extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: height * 0.05),
             CarouselSlider(
               options: CarouselOptions(
                 enlargeCenterPage: true,
-                height: height * 0.15,
-                viewportFraction: 0.3,
+                height: height * 0.17,
+                viewportFraction: 0.33,
                 initialPage: 2,
                 enableInfiniteScroll: false,
               ),
@@ -81,7 +81,7 @@ class PrayTimeWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         gradient: LinearGradient(
                           colors: [
-                            AppColors.containerColor1,
+                            AppColors.appColor,
                             AppColors.containerColor2,
                           ],
                           begin: Alignment.topCenter,

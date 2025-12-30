@@ -22,41 +22,37 @@ class AzkarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: width * 0.04,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: width * 0.03,
-        children: [
-          Text("Azkar", style: AppText.white16Text),
-          Expanded(
-            child: GridView.builder(
-              itemCount: 4,
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 185,
-                crossAxisSpacing: 14,
-                mainAxisSpacing: 16,
-                childAspectRatio: 185 / 259,
+    return Expanded(
+      child: GridView.builder(
+        itemCount: 4,
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 185,
+          crossAxisSpacing: 14,
+          mainAxisSpacing: 16,
+          childAspectRatio: 185 / 259,
+        ),
+        itemBuilder:
+            (context, index) => InkWell(
+              onTap: () {
+                // Navigator.of(context).pushNamed(
+                //   AppRoutes.azkarDetailsScreen,
+                //   arguments: titles[index],
+                // );
+              },
+              child: Container(
+                padding: EdgeInsets.all(width * 0.01),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: AppColors.goldColor, width: 2),
+                ),
+                child: Column(
+                  children: [
+                    Expanded(child: Image.asset(images[index])),
+                    Text(titles[index], style: AppText.white20Text),
+                  ],
+                ),
               ),
-              itemBuilder:
-                  (context, index) => Container(
-                    padding: EdgeInsets.all(width * 0.01,),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: AppColors.goldColor, width: 2),
-                    ),
-                    child: Column(
-                      children: [
-                        Expanded(child: Image.asset(images[index])),
-                        Text(titles[index], style: AppText.white20Text),
-                      ],
-                    ),
-                  ),
             ),
-          ),
-        ],
       ),
     );
   }

@@ -27,12 +27,13 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.dark,
       theme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.homeScreenName,
+      initialRoute: AppRoutes.onBoardingScreenName,
       routes: {
         AppRoutes.homeScreenName: (context) => HomeScreen(),
         AppRoutes.onBoardingScreenName: (context) => OnboardingScreen(),
         AppRoutes.suraDetailsScreen: (context) => SuraDetailsScreen(),
         AppRoutes.hadethDetailsScreen: (context) => HadethDetailsScreen(),
+        // AppRoutes.azkarDetailsScreen: (context) => AzkarDetailsScreen(),
       },
     );
   }

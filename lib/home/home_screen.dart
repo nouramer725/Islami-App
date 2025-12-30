@@ -122,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
           colorFilter: ColorFilter.mode(
             selectedIndex == index
                 ? AppColors.whiteColor
-                : AppColors.blackColor,
+                : AppColors.appColor,
             BlendMode.srcIn,
           ),
         ),

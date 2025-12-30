@@ -3,5 +3,6 @@ class AppRoutes {
   static const onBoardingScreenName = "onBoarding_screen";
   static const suraDetailsScreen = "Sura_details";
   static const hadethDetailsScreen = "hadeth_details";
+  // static const azkarDetailsScreen = "azkar_details";
 
 }

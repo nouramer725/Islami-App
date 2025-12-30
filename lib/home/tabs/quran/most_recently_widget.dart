@@ -82,7 +82,7 @@ class _MostRecentlyWidgetState extends State<MostRecentlyWidget> {
                               style: AppText.black24Text,
                             ),
                             Text(
-                              '${SuraResources.AyaNumber[mostRecentProvider.mostRecentList[index]]} Verses',
+                              '${SuraResources.ayaNumber[mostRecentProvider.mostRecentList[index]]} Verses',
                               style: AppText.black14Text,
                             ),
                           ],

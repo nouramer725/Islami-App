@@ -7,6 +7,7 @@ class AppText {
     fontSize: 16,
     fontWeight: FontWeight.bold,
     fontFamily: 'Janna',
+    height: 2,
   );
 
   static TextStyle white36Text = const TextStyle(
@@ -45,21 +46,21 @@ class AppText {
   );
 
   static TextStyle black24Text = const TextStyle(
-    color: AppColors.blackColor,
+    color: AppColors.appColor,
     fontSize: 24,
     fontWeight: FontWeight.bold,
     fontFamily: 'Janna',
   );
 
   static TextStyle black14Text = const TextStyle(
-    color: AppColors.blackColor,
+    color: AppColors.appColor,
     fontSize: 14,
     fontWeight: FontWeight.bold,
     fontFamily: 'Janna',
   );
 
   static TextStyle black16Text = const TextStyle(
-    color: AppColors.blackColor,
+    color: AppColors.appColor,
     fontSize: 16,
     fontWeight: FontWeight.bold,
     fontFamily: 'Janna',
@@ -89,7 +90,7 @@ class AppText {
   );
 
   static TextStyle black20Text = const TextStyle(
-    color: AppColors.blackColor,
+    color: AppColors.appColor,
     fontSize: 20,
     fontWeight: FontWeight.w500,
     fontFamily: 'Janna',

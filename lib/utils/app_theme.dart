@@ -6,7 +6,7 @@ class AppTheme {
     scaffoldBackgroundColor: AppColors.transparentColor,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: AppColors.whiteColor,
-      unselectedItemColor: AppColors.blackColor,
+      unselectedItemColor: AppColors.appColor,
       type: BottomNavigationBarType.fixed,
       showSelectedLabels: true,
       showUnselectedLabels: false,

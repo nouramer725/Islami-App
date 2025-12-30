@@ -33,4 +33,8 @@ class AppAssets {
   static const String morningAzkar = 'assets/images/morning.png';
   static const String sleepingAzkar = 'assets/images/sleeping.png';
   static const String walkingAzkar = 'assets/images/waking.png';
+
+  static const String imgBottomRadio = 'assets/images/bottomRadio.png';
+  static const String imgBottomRadioSoundSharp = 'assets/images/soundSharp.png';
+
 }

@@ -29,7 +29,7 @@ class SuraItemBuilder extends StatelessWidget {
                 style: AppText.white16Text,
               ),
               Text(
-                "${SuraResources.AyaNumber[index]} Verses",
+                "${SuraResources.ayaNumber[index]} Verses",
                 style: AppText.white16Text,
               ),
             ],
