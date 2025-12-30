@@ -36,19 +36,16 @@ class _HadethDetailsScreenState extends State<HadethDetailsScreen> {
                 children: [
                   Column(
                     children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: width * 0.02),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Image.asset(AppAssets.imgLeftDecoration),
-                            Text(
-                              hadeth?.title ?? '',
-                              style: AppText.bold20AppColor,
-                            ),
-                            Image.asset(AppAssets.imgRightDecoration),
-                          ],
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image.asset(AppAssets.imgLeftDecoration),
+                          Text(
+                            hadeth?.title ?? '',
+                            style: AppText.bold20AppColor,
+                          ),
+                          Image.asset(AppAssets.imgRightDecoration),
+                        ],
                       ),
                       Expanded(
                         child: Padding(
@@ -82,6 +79,7 @@ class _HadethDetailsScreenState extends State<HadethDetailsScreen> {
     String content = fileContent.substring(fileIndex);
     hadeth = Hadeth(title: title, content: content);
     await Future.delayed(Duration(seconds: 1));
+    if (!mounted) return;
     setState(() {});
   }
 }

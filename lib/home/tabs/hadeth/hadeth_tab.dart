@@ -84,6 +84,7 @@ class _HadethTabState extends State<HadethTab> {
     String content = fileContent.substring(fileIndex);
     hadeth = Hadeth(title: title, content: content);
     await Future.delayed(Duration(seconds: 1));
+    if (!mounted) return;
     setState(() {});
   }
 }

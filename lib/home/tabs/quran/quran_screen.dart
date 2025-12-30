@@ -35,7 +35,6 @@ class _QuranScreenState extends State<QuranScreen> {
             },
           ),
           MostRecentlyWidget(),
-          Text("Suras List", style: AppText.white16Text),
           Expanded(
             child:
                 filterList.isEmpty
