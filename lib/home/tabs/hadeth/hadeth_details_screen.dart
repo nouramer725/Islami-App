@@ -37,12 +37,13 @@ class _HadethDetailsScreenState extends State<HadethDetailsScreen> {
                   Column(
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Image.asset(AppAssets.imgLeftDecoration),
-                          Text(
-                            hadeth?.title ?? '',
-                            style: AppText.bold20AppColor,
+                          Expanded(
+                            child: Text(
+                              hadeth?.title ?? '',
+                              style: AppText.bold20AppColor,
+                            ),
                           ),
                           Image.asset(AppAssets.imgRightDecoration),
                         ],
