@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:islami_app/utils/app_assets.dart';
 import 'package:islami_app/utils/app_colors.dart';
-
 import '../utils/app_routes.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -10,25 +9,33 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+
     return IntroductionScreen(
       globalBackgroundColor: AppColors.appColor,
       pages: [
         PageViewModel(
           titleWidget: Image.asset(
             AppAssets.titleImageOnBoarding,
-            height: 171,
-            width: 291,
+            height: height * 0.22,
+            width: width * 0.75,
           ),
           bodyWidget: Column(
-            spacing: 80,
+            spacing: height * 0.08,
             children: [
-              Image.asset(AppAssets.titleImageOnBoarding2, fit: BoxFit.cover),
+              Image.asset(
+                AppAssets.titleImageOnBoarding2,
+                width: width * 0.8,
+                height: height * 0.35,
+                fit: BoxFit.cover,
+              ),
               Text(
                 "Welcome To Islami App",
                 style: TextStyle(
                   color: AppColors.goldColor,
                   fontWeight: FontWeight.bold,
-                  fontSize: 24,
+                  fontSize: width * 0.06,
                 ),
               ),
             ],
@@ -38,19 +45,24 @@ class OnboardingScreen extends StatelessWidget {
         PageViewModel(
           titleWidget: Image.asset(
             AppAssets.titleImageOnBoarding,
-            height: 171,
-            width: 291,
+            height: height * 0.22,
+            width: width * 0.75,
           ),
           bodyWidget: Column(
-            spacing: 40,
+            spacing: height * 0.05,
             children: [
-              Image.asset(AppAssets.titleImageOnBoarding3, fit: BoxFit.cover),
+              Image.asset(
+                AppAssets.titleImageOnBoarding3,
+                width: width * 0.8,
+                height: height * 0.35,
+                fit: BoxFit.cover,
+              ),
               Text(
                 "Welcome To Islami App",
                 style: TextStyle(
                   color: AppColors.goldColor,
                   fontWeight: FontWeight.bold,
-                  fontSize: 24,
+                  fontSize: width * 0.06,
                 ),
               ),
               Text(
@@ -59,28 +71,34 @@ class OnboardingScreen extends StatelessWidget {
                 style: TextStyle(
                   color: AppColors.goldColor,
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: width * 0.05,
                 ),
               ),
             ],
           ),
         ),
+
         PageViewModel(
           titleWidget: Image.asset(
             AppAssets.titleImageOnBoarding,
-            height: 171,
-            width: 291,
+            height: height * 0.22,
+            width: width * 0.75,
           ),
           bodyWidget: Column(
-            spacing: 40,
+            spacing: height * 0.05,
             children: [
-              Image.asset(AppAssets.titleImageOnBoarding4, fit: BoxFit.cover),
+              Image.asset(
+                AppAssets.titleImageOnBoarding4,
+                width: width * 0.8,
+                height: height * 0.35,
+                fit: BoxFit.cover,
+              ),
               Text(
                 "Reading the Quran",
                 style: TextStyle(
                   color: AppColors.goldColor,
                   fontWeight: FontWeight.bold,
-                  fontSize: 24,
+                  fontSize: width * 0.06,
                 ),
               ),
               Text(
@@ -89,28 +107,34 @@ class OnboardingScreen extends StatelessWidget {
                 style: TextStyle(
                   color: AppColors.goldColor,
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: width * 0.05,
                 ),
               ),
             ],
           ),
         ),
+
         PageViewModel(
           titleWidget: Image.asset(
             AppAssets.titleImageOnBoarding,
-            height: 171,
-            width: 291,
+            height: height * 0.22,
+            width: width * 0.75,
           ),
           bodyWidget: Column(
-            spacing: 40,
+            spacing: height * 0.05,
             children: [
-              Image.asset(AppAssets.titleImageOnBoarding5, fit: BoxFit.cover),
+              Image.asset(
+                AppAssets.titleImageOnBoarding5,
+                width: width * 0.8,
+                height: height * 0.35,
+                fit: BoxFit.cover,
+              ),
               Text(
                 "Bearish",
                 style: TextStyle(
                   color: AppColors.goldColor,
                   fontWeight: FontWeight.bold,
-                  fontSize: 24,
+                  fontSize: width * 0.06,
                 ),
               ),
               Text(
@@ -119,28 +143,34 @@ class OnboardingScreen extends StatelessWidget {
                 style: TextStyle(
                   color: AppColors.goldColor,
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: width * 0.05,
                 ),
               ),
             ],
           ),
         ),
+
         PageViewModel(
           titleWidget: Image.asset(
             AppAssets.titleImageOnBoarding,
-            height: 171,
-            width: 291,
+            height: height * 0.22,
+            width: width * 0.75,
           ),
           bodyWidget: Column(
-            spacing: 40,
+            spacing: height * 0.05,
             children: [
-              Image.asset(AppAssets.titleImageOnBoarding6, fit: BoxFit.cover),
+              Image.asset(
+                AppAssets.titleImageOnBoarding6,
+                width: width * 0.8,
+                height: height * 0.35,
+                fit: BoxFit.cover,
+              ),
               Text(
                 "Holy Quran Radio",
                 style: TextStyle(
                   color: AppColors.goldColor,
                   fontWeight: FontWeight.bold,
-                  fontSize: 24,
+                  fontSize: width * 0.06,
                 ),
               ),
               Text(
@@ -149,7 +179,7 @@ class OnboardingScreen extends StatelessWidget {
                 style: TextStyle(
                   color: AppColors.goldColor,
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: width * 0.05,
                 ),
               ),
             ],
@@ -158,9 +188,18 @@ class OnboardingScreen extends StatelessWidget {
       ],
 
       showBackButton: true,
-      back: Text("Back", style: TextStyle(color: AppColors.goldColor)),
-      next: Text("Next", style: TextStyle(color: AppColors.goldColor)),
-      done: Text("Finish", style: TextStyle(color: AppColors.goldColor)),
+      back: Text(
+        "Back",
+        style: TextStyle(color: AppColors.goldColor, fontSize: width * 0.045),
+      ),
+      next: Text(
+        "Next",
+        style: TextStyle(color: AppColors.goldColor, fontSize: width * 0.045),
+      ),
+      done: Text(
+        "Finish",
+        style: TextStyle(color: AppColors.goldColor, fontSize: width * 0.045),
+      ),
 
       onDone: () {
         Navigator.pushReplacementNamed(context, AppRoutes.homeScreenName);
@@ -169,10 +208,10 @@ class OnboardingScreen extends StatelessWidget {
       dotsDecorator: DotsDecorator(
         color: AppColors.greyColor,
         activeColor: AppColors.goldColor,
-        size: Size(7, 20),
-        activeSize: Size(25, 7),
+        size: Size(width * 0.02, height * 0.01),
+        activeSize: Size(width * 0.05, height * 0.01),
         activeShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(25)),
+          borderRadius: BorderRadius.circular(25),
         ),
       ),
     );

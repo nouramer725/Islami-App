@@ -25,7 +25,8 @@ class AppAssets {
   static const String imgRightDecoration = 'assets/images/img_right_corner.png';
   static const String imgLeftDecoration = 'assets/images/img_left_corner.png';
 
-  static const String sebhaScreen = 'assets/images/Sebha.png';
+  static const String sebhaHead = 'assets/images/sebhaHead.png';
+  static const String sebhaBody = 'assets/images/SebhaBody.png';
   static const String hadethScreen = 'assets/images/HadithCard.png';
   static const String timeContainer = 'assets/images/pray_time.png';
 
