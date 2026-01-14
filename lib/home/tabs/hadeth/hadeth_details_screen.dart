@@ -41,6 +41,7 @@ class _HadethDetailsScreenState extends State<HadethDetailsScreen> {
                           Image.asset(AppAssets.imgLeftDecoration),
                           Expanded(
                             child: Text(
+                              textAlign: TextAlign.center,
                               hadeth?.title ?? '',
                               style: AppText.bold20AppColor,
                             ),
